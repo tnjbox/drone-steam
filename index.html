@@ -5,43 +5,37 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>解密四軸無人機｜教師教學規畫</title>
 <style>
-:root{--bg:#f5f7fb;--card:#fff;--ink:#172033;--muted:#5f6b7a;--line:#dfe5ee;--accent:#1769aa;--accent2:#0f8b8d;--dark:#102235}
+:root{--bg:#f5f7fb;--card:#fff;--ink:#172033;--muted:#5f6b7a;--line:#dfe5ee;--accent:#1769aa;--accent2:#0f8b8d;--dark:#102235;--soft:#eef6fb}
 *{box-sizing:border-box}body{margin:0;font-family:"Microsoft JhengHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.72}
 header{background:linear-gradient(135deg,#0d2235,#164d72 58%,#0f8b8d);color:#fff;padding:52px 22px}.wrap{max-width:1100px;margin:auto}
-h1{font-size:clamp(2rem,4vw,3.4rem);margin:.2em 0}.subtitle{font-size:1.12rem;max-width:900px}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.tag{padding:6px 10px;border:1px solid #ffffff55;border-radius:999px;background:#ffffff12}
+h1{font-size:clamp(2rem,4vw,3.4rem);margin:.2em 0}.subtitle{font-size:1.12rem;max-width:920px}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.tag{padding:6px 10px;border:1px solid #ffffff55;border-radius:999px;background:#ffffff12}
 main{padding:28px 18px 60px}.card{max-width:1100px;margin:0 auto 22px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 8px 24px #1423370d}
 h2{color:#153b5a;margin:0 0 12px}.lead{font-size:1.08rem}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.stat{padding:18px;border:1px solid var(--line);border-radius:14px;background:#fbfcfe}.stat strong{display:block;font-size:1.5rem;color:var(--accent)}
 details{border:1px solid var(--line);border-radius:16px;background:#fff;margin:14px 0;overflow:hidden}summary{list-style:none;cursor:pointer}.module-head{display:grid;grid-template-columns:78px 1fr;gap:16px;padding:18px;background:linear-gradient(90deg,#f1f7fc,#fff);align-items:center}.mnum{width:64px;height:64px;border-radius:16px;display:grid;place-items:center;background:var(--dark);color:white;font-weight:800;font-size:1.3rem}.body{padding:18px;border-top:1px solid var(--line)}.link{display:inline-block;margin-top:8px;padding:7px 12px;border-radius:999px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700}.wait{display:inline-block;margin-top:8px;padding:7px 12px;border-radius:999px;background:#cbd3db;color:#58636f;font-weight:700}
-table{width:100%;border-collapse:collapse}th,td{border:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}th{background:#eef5fa}
-footer{background:#102235;color:#dbe5ed;padding:24px;text-align:center}@media(max-width:760px){.grid{grid-template-columns:1fr}.module-head{grid-template-columns:64px 1fr}}
+table{width:100%;border-collapse:collapse}th,td{border:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}th{background:#eef5fa}.callout{background:#edf9f7;border-left:5px solid var(--accent2);padding:16px 18px;border-radius:12px;margin-top:14px}.toolbox{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.tool{padding:14px;border:1px solid var(--line);border-radius:12px;background:#fbfcfe}.must{background:#fff4cc;padding:3px 7px;border-radius:999px;font-weight:700}
+footer{background:#102235;color:#dbe5ed;padding:24px;text-align:center}@media(max-width:760px){.grid,.toolbox{grid-template-columns:1fr}.module-head{grid-template-columns:64px 1fr}}
 </style>
 </head>
 <body>
-<header><div class="wrap"><div>科技中心｜教師教學規畫首頁</div><h1>解密四軸無人機</h1><div class="subtitle">從風力、感測到智慧控制的 STEAM 探索。以「體驗 → 統整 → 反思 → 應用」為主脈絡，將 M1～M7 七個核心提問轉換為闖關任務；M0 為序章／系統任務。</div><div class="tags"><span class="tag">智高 #1413</span><span class="tag">micro:bit / ESP32 / Arduino</span><span class="tag">STEAM 任務探究</span><span class="tag">低飛行依賴</span></div></div></header>
+<header><div class="wrap"><div>科技中心｜教師教學規畫首頁</div><h1>解密四軸無人機</h1><div class="subtitle">從風力、感測到智慧控制的 STEAM 探索。M0 建立整體系統觀；M1～M7 以核心提問驅動探究，依各模組真正需要選擇體驗、實作、量測、模擬、反思或創作，不把固定流程套用到所有關卡。</div><div class="tags"><span class="tag">智高 #1413</span><span class="tag">micro:bit / ESP32 / Arduino</span><span class="tag">STEAM 任務探究</span><span class="tag">知識鷹架</span><span class="tag">低飛行依賴</span></div></div></header>
 <main>
-<section class="card"><h2>網站架構</h2><p class="lead"><strong>index.html＝教師教學規畫首頁</strong>；<strong>M0.html～M7.html＝學生任務教學頁面</strong>。</p><p>首頁集中教師端的課程架構、核心提問、材料與鷹架；各模組頁面則提供學生闖關任務。目前先完成 M2 原型頁面。</p></section>
+<section class="card"><h2>網站架構</h2><p class="lead"><strong>index.html＝教師教學規畫首頁</strong>；<strong>M0.html～M7.html＝學生任務教學頁面</strong>。</p><p>首頁處理整體課程設計脈絡、各模組核心問題與教師規畫；學生頁面只保留完成該任務真正需要的活動與數位紀錄。</p></section>
 <section class="card"><h2>課程定位</h2><div class="grid"><div class="stat"><strong>70–80%</strong>桌面 STEAM 探究、機電實作與工程改造</div><div class="stat"><strong>15–25%</strong>智高模型驗證、結構重組與陸地任務</div><div class="stat"><strong>0–10%</strong>真實四軸飛行展示或少量驗證</div></div></section>
-<section class="card"><h2>M0～M7 任務主題</h2>
-<table><thead><tr><th>模組</th><th>任務主題</th><th>核心提問</th></tr></thead><tbody>
-<tr><td>M0</td><td>系統解密</td><td>一架四軸無人機裡藏了什麼？</td></tr>
-<tr><td>M1</td><td>機體結構</td><td>怎樣的「身體」比較穩？</td></tr>
-<tr><td>M2</td><td>動力解密</td><td>螺旋槳如何把電變成推力？</td></tr>
-<tr><td>M3</td><td>四軸協同</td><td>為什麼要正轉、反轉？</td></tr>
-<tr><td>M4</td><td>感知世界</td><td>無人機怎麼知道高度與移動？</td></tr>
-<tr><td>M5</td><td>智慧控制</td><td>機器怎麼自己修正？</td></tr>
-<tr><td>M6</td><td>程式與任務</td><td>如何讓無人機依照規則自己完成任務？</td></tr>
-<tr><td>M7</td><td>工程創新</td><td>同一套零件，可以變成什麼？</td></tr>
+<section class="card"><h2>M0～M7 任務主題</h2><table><thead><tr><th>模組</th><th>任務主題</th><th>核心提問</th></tr></thead><tbody>
+<tr><td>M0</td><td>系統解密</td><td>一架四軸無人機裡藏了什麼？</td></tr><tr><td>M1</td><td>機體結構</td><td>怎樣的「身體」比較穩？</td></tr><tr><td>M2</td><td>動力解密</td><td>螺旋槳如何把電變成推力？</td></tr><tr><td>M3</td><td>四軸協同</td><td>為什麼要正轉、反轉？</td></tr><tr><td>M4</td><td>感知世界</td><td>無人機怎麼知道高度與移動？</td></tr><tr><td>M5</td><td>智慧控制</td><td>機器怎麼自己修正？</td></tr><tr><td>M6</td><td>程式與任務</td><td>如何讓無人機依照規則自己完成任務？</td></tr><tr><td>M7</td><td>工程創新</td><td>同一套零件，可以變成什麼？</td></tr>
 </tbody></table></section>
 <section class="card"><h2>模組入口</h2>
 <details open><summary><div class="module-head"><div class="mnum">M0</div><div><strong>系統解密</strong><br>一架四軸無人機裡藏了什麼？<br><span class="wait">M0 任務頁面｜待建置</span></div></div></summary><div class="body">序章任務：建立科技系統地圖，認識結構、能源、動力、感測、控制、通訊與程式等子系統。</div></details>
 <details><summary><div class="module-head"><div class="mnum">M1</div><div><strong>機體結構</strong><br>怎樣的「身體」比較穩？<br><span class="wait">M1 任務頁面｜待建置</span></div></div></summary><div class="body">探究結構、對稱、重心、重量與穩定。</div></details>
-<details><summary><div class="module-head"><div class="mnum">M2</div><div><strong>動力解密</strong><br>螺旋槳如何把電變成推力？<br><a class="link" href="M2.html">進入 M2 任務教學頁面 →</a></div></div></summary><div class="body">以單馬達固定式推力測試台，從感受氣流到量測推力，建立「電能 → 旋轉 → 氣流 → 推力」因果模型。</div></details>
+<details><summary><div class="module-head"><div class="mnum">M2</div><div><strong>動力解密</strong><br>螺旋槳如何把電變成推力？<br><a class="link" href="M2.html">進入 M2 任務教學頁面 →</a></div></div></summary><div class="body">從感官體驗進入推力量測，以數據回答核心問題，再用模擬可視化機制，最後以「證據能支持什麼」反思並自然銜接 M3。</div></details>
 <details><summary><div class="module-head"><div class="mnum">M3</div><div><strong>四軸協同</strong><br>為什麼要正轉、反轉？<br><span class="wait">M3 任務頁面｜待建置</span></div></div></summary><div class="body">探究反扭矩、正反轉配置與四軸協同。</div></details>
 <details><summary><div class="module-head"><div class="mnum">M4</div><div><strong>感知世界</strong><br>無人機怎麼知道高度與移動？<br><span class="wait">M4 任務頁面｜待建置</span></div></div></summary><div class="body">探究 ToF、光流、感測資料與定位。</div></details>
 <details><summary><div class="module-head"><div class="mnum">M5</div><div><strong>智慧控制</strong><br>機器怎麼自己修正？<br><span class="wait">M5 任務頁面｜待建置</span></div></div></summary><div class="body">探究目標值、誤差、回授與 PID 概念。</div></details>
 <details><summary><div class="module-head"><div class="mnum">M6</div><div><strong>程式與任務</strong><br>如何讓無人機依照規則自己完成任務？<br><span class="wait">M6 任務頁面｜待建置</span></div></div></summary><div class="body">探究路徑規劃、流程、條件、程式與自動化。</div></details>
 <details><summary><div class="module-head"><div class="mnum">M7</div><div><strong>工程創新</strong><br>同一套零件，可以變成什麼？<br><span class="wait">M7 任務頁面｜待建置</span></div></div></summary><div class="body">運用相同零件進行重組、設計、改造與最佳化。</div></details>
 </section>
-<section class="card"><h2>共用關卡原型</h2><p><strong>任務情境 → 核心提問 → 體驗 → 預測 → 探究／量測 → 統整 → 反思 → 應用 → 過關</strong></p><p>外層學習脈絡為「體驗 → 統整 → 反思 → 應用」；內層探究循環為「預測 → 操作 → 量測 → 解釋 → 改造」。</p></section>
+<section class="card"><h2>共用任務設計框架｜不是固定流程</h2><p class="lead">每個模組先回答：「為了讓學生真正回答核心提問，需要哪些活動與證據？」再選擇合適的任務元素。</p><div class="callout"><strong>必要核心只有三件事：</strong><br>① 有一個值得探究的問題 → ② 有足以回答問題的活動與證據 → ③ 最後形成概念，或產生下一個值得探究的問題。</div>
+<div class="toolbox" style="margin-top:16px"><div class="tool"><span class="must">必要</span> <strong>核心提問</strong><br>決定本關真正要破解什麼。</div><div class="tool"><strong>情境／引起動機</strong><br>需要建立問題意識時使用。</div><div class="tool"><strong>體驗／觀察</strong><br>需要先形成直接經驗時使用。</div><div class="tool"><strong>預測</strong><br>需要揭露學生原有概念時使用。</div><div class="tool"><strong>探究／實作／量測</strong><br>需要操作變因或取得證據時使用。</div><div class="tool"><strong>模擬／可視化</strong><br>需要看見實體中不可見機制時使用。</div><div class="tool"><strong>統整</strong><br>把現象與證據形成概念、規則或系統模型。</div><div class="tool"><strong>反思</strong><br>檢視證據、方法、限制與學習意義。</div><div class="tool"><strong>應用／創作</strong><br>只有在有明確遷移價值時才加入，不為湊流程而安排。</div><div class="tool"><strong>銜接下一關</strong><br>系列課程可由本關結論自然產生下一個問題。</div></div>
+<p style="margin-top:16px"><strong>設計原則：</strong>「體驗 → 統整 → 反思 → 應用」保留為整體課程的學習觀點，不強迫每一個 M 模組都完整出現；各模組可依認知需求形成不同的教學性格。</p></section>
 </main><footer>解密四軸無人機｜STEAM 探索課程</footer>
 </body></html>
