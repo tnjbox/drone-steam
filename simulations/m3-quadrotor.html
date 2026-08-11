@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>M3 四軸協同模擬器</title>
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--ink:#172033;--muted:#617083;--line:#dde5ee;--blue:#123d63;--blue2:#1769aa;--teal:#0f8b8d;--orange:#e67e22;--green:#2b8a5a;--soft:#eef6fb;--warn:#fff4cc}
+*{box-sizing:border-box}body{margin:0;font-family:"Microsoft JhengHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}.wrap{max-width:1180px;margin:auto;padding:24px}a{color:var(--blue2)}h1,h2{color:var(--blue)}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin:18px 0;box-shadow:0 8px 24px #1423370d}.note{color:var(--muted)}.simgrid{display:grid;grid-template-columns:minmax(420px,1.1fr) minmax(320px,.9fr);gap:22px}.stage{min-height:520px;border:1px solid #d8e4ef;border-radius:20px;background:radial-gradient(circle at 50% 42%,#fff 0,#f6fbff 48%,#e9f3fa 100%);position:relative;overflow:hidden}.axis-label{position:absolute;font-size:.85rem;color:#728197;font-weight:700}.front-label{top:14px;left:50%;transform:translateX(-50%)}.rear-label{bottom:14px;left:50%;transform:translateX(-50%)}.left-label{left:14px;top:50%;transform:translateY(-50%)}.right-label{right:14px;top:50%;transform:translateY(-50%)}.craft-wrap{position:absolute;left:50%;top:50%;width:330px;height:330px;transform:translate(-50%,-50%);perspective:800px}.craft{position:absolute;left:50%;top:50%;width:260px;height:260px;transform:translate(-50%,-50%) rotateX(0deg) rotateY(0deg);transform-style:preserve-3d;transition:.28s ease}.arm{position:absolute;left:50%;top:50%;width:250px;height:18px;background:#53687b;border-radius:999px;transform-origin:center}.arm.a{transform:translate(-50%,-50%) rotate(45deg)}.arm.b{transform:translate(-50%,-50%) rotate(-45deg)}.body{position:absolute;left:50%;top:50%;width:96px;height:96px;border-radius:24px;background:#183b56;border:7px solid #dbe9f3;transform:translate(-50%,-50%);display:grid;place-items:center;color:#fff;font-weight:900;text-align:center;box-shadow:0 10px 24px #1b344733}.motor{position:absolute;width:74px;height:74px;border-radius:50%;background:#fff;border:5px solid #2b4052;display:grid;place-items:center;font-weight:800;box-shadow:0 8px 18px #1a314325}.motor .rot{font-size:1.35rem;color:var(--teal);line-height:1}.motor .lab{font-size:.78rem;color:#263746}.m-a1{left:-5px;top:-5px}.m-b1{right:-5px;top:-5px}.m-b2{left:-5px;bottom:-5px}.m-a2{right:-5px;bottom:-5px}.thrust-arrow{position:absolute;width:8px;background:var(--orange);border-radius:999px;bottom:66px;left:50%;transform:translateX(-50%);height:36px;transition:.2s}.thrust-arrow:before{content:"";position:absolute;left:-7px;top:-14px;border-left:11px solid transparent;border-right:11px solid transparent;border-bottom:16px solid var(--orange)}.motor-value{position:absolute;top:79px;left:50%;transform:translateX(-50%);font-size:.72rem;color:#456;white-space:nowrap}.yaw-ring{position:absolute;left:50%;top:50%;width:306px;height:306px;border:3px dashed #9aabb9;border-radius:50%;transform:translate(-50%,-50%);opacity:.5}.yaw-indicator{position:absolute;left:50%;top:50%;font-size:2.8rem;color:#8c5db0;font-weight:900;transform:translate(-50%,-50%);margin-top:185px;transition:.2s}.controls{display:grid;gap:12px}.motor-control{padding:13px 14px;border:1px solid var(--line);border-radius:13px;background:#fbfcfe}.motor-control header{display:flex;justify-content:space-between;align-items:center;font-weight:800;margin-bottom:7px}.motor-control input{width:100%}.bigval{color:var(--blue2)}.buttons{display:flex;flex-wrap:wrap;gap:8px}.btn{border:0;border-radius:10px;padding:9px 12px;background:#eaf1f6;color:#194f73;font:inherit;font-weight:700;cursor:pointer}.btn.primary{background:var(--blue2);color:#fff}.btn.active{outline:3px solid #9bc8e7}.result-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.result{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff}.result strong{display:block;color:var(--blue);font-size:1.08rem}.main-result{background:#edf9f7;border-left:5px solid var(--teal);padding:16px 18px;border-radius:13px;font-size:1.08rem}.switches{display:flex;flex-wrap:wrap;gap:10px}.switch{padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff}.legend{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.legend div{padding:12px;border-radius:12px;background:#f7fafc;border:1px solid var(--line)}.concept{background:var(--warn);padding:14px 16px;border-radius:12px}.terms{display:none}.terms.show{display:inline}.mini{font-size:.9rem;color:var(--muted)}
+@media(max-width:860px){.simgrid{grid-template-columns:1fr}.stage{min-height:460px}.craft-wrap{transform:translate(-50%,-50%) scale(.88)}.legend{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a href="../index.html">← 回課程首頁</a>
+<h1>M3｜四軸協同模擬器</h1>
+<p>調整四顆馬達的輸出，觀察機體會出現什麼<strong>姿態趨勢</strong>。這是一個概念模型，用來看懂「推力差」與「旋轉平衡」，不是精密飛行模擬。</p>
+<div class="card">
+<div class="simgrid">
+<div class="stage">
+<div class="axis-label front-label">前方</div><div class="axis-label rear-label">後方</div><div class="axis-label left-label">左側</div><div class="axis-label right-label">右側</div>
+<div class="craft-wrap">
+<div class="yaw-ring"></div>
+<div id="craft" class="craft">
+<div class="arm a"></div><div class="arm b"></div><div class="body">四軸<br>機體</div>
+<div class="motor m-a1" data-motor="a1"><div class="rot">↻</div><div class="lab">A1 前左</div><div class="thrust-arrow"></div><div class="motor-value"></div></div>
+<div class="motor m-b1" data-motor="b1"><div class="rot">↺</div><div class="lab">B1 前右</div><div class="thrust-arrow"></div><div class="motor-value"></div></div>
+<div class="motor m-b2" data-motor="b2"><div class="rot">↺</div><div class="lab">B2 後左</div><div class="thrust-arrow"></div><div class="motor-value"></div></div>
+<div class="motor m-a2" data-motor="a2"><div class="rot">↻</div><div class="lab">A2 後右</div><div class="thrust-arrow"></div><div class="motor-value"></div></div>
+</div>
+<div id="yawIndicator" class="yaw-indicator">•</div>
+</div>
+</div>
+<div class="controls">
+<div class="buttons"><button class="btn primary" onclick="preset('balanced')">四顆相同</button><button class="btn" onclick="preset('front')">前側較強</button><button class="btn" onclick="preset('rear')">後側較強</button><button class="btn" onclick="preset('left')">左側較強</button><button class="btn" onclick="preset('right')">右側較強</button><button class="btn" onclick="preset('high')">全部提高</button><button class="btn" onclick="preset('low')">全部降低</button></div>
+<div class="motor-control"><header><span>A1｜前左</span><span class="bigval"><b id="a1v">50</b>%</span></header><input id="a1" type="range" min="0" max="100" step="5" value="50"></div>
+<div class="motor-control"><header><span>B1｜前右</span><span class="bigval"><b id="b1v">50</b>%</span></header><input id="b1" type="range" min="0" max="100" step="5" value="50"></div>
+<div class="motor-control"><header><span>B2｜後左</span><span class="bigval"><b id="b2v">50</b>%</span></header><input id="b2" type="range" min="0" max="100" step="5" value="50"></div>
+<div class="motor-control"><header><span>A2｜後右</span><span class="bigval"><b id="a2v">50</b>%</span></header><input id="a2" type="range" min="0" max="100" step="5" value="50"></div>
+</div>
+</div>
+</div>
+
+<div class="card">
+<h2>我現在看到什麼？</h2>
+<div id="mainResult" class="main-result">四邊推力接近，機體沒有明顯傾斜趨勢。</div>
+<div class="result-grid" style="margin-top:12px">
+<div class="result"><strong>前後差</strong><span id="pitchText">平衡</span> <span class="terms">（Pitch／俯仰）</span></div>
+<div class="result"><strong>左右差</strong><span id="rollText">平衡</span> <span class="terms">（Roll／滾轉）</span></div>
+<div class="result"><strong>總推力</strong><span id="totalText">200</span>（相對值）</div>
+<div class="result"><strong>旋轉趨勢</strong><span id="yawText">正反轉作用接近平衡</span> <span class="terms">（Yaw／偏航）</span></div>
+</div>
+<div class="switches" style="margin-top:14px">
+<label class="switch"><input id="termSwitch" type="checkbox"> 顯示 Pitch／Roll／Yaw 術語</label>
+<label class="switch"><input id="rotationMode" type="checkbox"> 假設四顆螺旋槳全部同方向旋轉</label>
+</div>
+</div>
+
+<div class="card">
+<h2>觀察重點</h2>
+<div class="legend"><div><strong>前後推力不同</strong><br>哪一側推力較大，哪一側較容易被抬高，機體因此產生前後傾斜。</div><div><strong>左右推力不同</strong><br>左右兩側的推力差會造成左右傾斜。</div><div><strong>旋轉方向</strong><br>A／B 採相反方向時，旋轉反作用較能互相抵銷；若全都同方向，機體會出現明顯旋轉趨勢。</div></div>
+<div class="concept" style="margin-top:14px"><strong>核心概念：</strong>四軸不是「四顆一起轉」就完成控制，而是四顆馬達依需求協調改變推力，同時利用相反旋轉方向處理旋轉平衡。</div>
+<p class="mini">註：A1／B1／B2／A2 的位置與 A/B 相反旋轉關係依課程模型呈現；箭頭方向用於概念示意。實際套件若需精確對應順、逆時針方向，應以實機與原廠標示再次校正。</p>
+</div>
+</div>
+<script>
+const ids=['a1','b1','b2','a2'];
+const el=Object.fromEntries(ids.map(id=>[id,document.getElementById(id)]));
+const craft=document.getElementById('craft'), main=document.getElementById('mainResult'), yawInd=document.getElementById('yawIndicator');
+function values(){return Object.fromEntries(ids.map(id=>[id,+el[id].value]));}
+function preset(name){const map={balanced:[50,50,50,50],front:[70,70,40,40],rear:[40,40,70,70],left:[70,40,70,40],right:[40,70,40,70],high:[70,70,70,70],low:[30,30,30,30]};(map[name]||map.balanced).forEach((v,i)=>el[ids[i]].value=v);draw();}
+function desc(delta,pos,neg){if(Math.abs(delta)<8)return '平衡';return delta>0?pos:neg;}
+function draw(){
+ const v=values(); ids.forEach(id=>{document.getElementById(id+'v').textContent=v[id];const m=document.querySelector('[data-motor="'+id+'"]');m.querySelector('.thrust-arrow').style.height=(24+v[id]*.65)+'px';m.querySelector('.motor-value').textContent=v[id]+'%';});
+ const front=v.a1+v.b1,rear=v.b2+v.a2,left=v.a1+v.b2,right=v.b1+v.a2,total=front+rear;
+ const pitch=rear-front; // rear stronger => front tilts down = forward tilt
+ const roll=right-left;  // right stronger => left tilts down = left tilt
+ const pitchDeg=Math.max(-16,Math.min(16,pitch*.18));
+ const rollDeg=Math.max(-16,Math.min(16,roll*.18));
+ craft.style.transform=`translate(-50%,-50%) rotateX(${pitchDeg}deg) rotateY(${-rollDeg}deg)`;
+ const pText=desc(pitch,'前傾','後傾');
+ const rText=desc(roll,'左傾','右傾');
+ document.getElementById('pitchText').textContent=pText;document.getElementById('rollText').textContent=rText;document.getElementById('totalText').textContent=total;
+ const allSame=document.getElementById('rotationMode').checked;
+ let yaw=0,yawText='正反轉作用接近平衡';
+ if(allSame){yaw=total;yawText='明顯旋轉趨勢（同方向旋轉造成反作用累加）';}
+ else{const a=v.a1+v.a2,b=v.b1+v.b2;yaw=a-b;if(Math.abs(yaw)<8)yawText='正反轉作用接近平衡';else yawText=yaw>0?'A 組作用較強，出現一側旋轉趨勢':'B 組作用較強，出現另一側旋轉趨勢';}
+ document.getElementById('yawText').textContent=yawText;yawInd.textContent=Math.abs(yaw)<8?'•':(yaw>0?'↺':'↻');
+ let phrase=[];if(pText!=='平衡')phrase.push(pText);if(rText!=='平衡')phrase.push(rText);if(Math.abs(yaw)>=8)phrase.push('旋轉');
+ if(!phrase.length)main.textContent='四邊推力接近，機體沒有明顯傾斜趨勢。';else main.textContent='目前主要趨勢：'+phrase.join('＋')+'。請比較是哪一側的推力較大。';
+}
+ids.forEach(id=>el[id].addEventListener('input',draw));document.getElementById('termSwitch').addEventListener('change',e=>document.querySelectorAll('.terms').forEach(x=>x.classList.toggle('show',e.target.checked)));document.getElementById('rotationMode').addEventListener('change',draw);draw();
+</script>
+</body></html>
