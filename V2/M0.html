@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>M0 系統解密｜一架四軸無人機裡，哪些部分在一起合作？</title>
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--ink:#172033;--muted:#617083;--line:#dde5ee;--blue:#123d63;--blue2:#1769aa;--teal:#0f8b8d;--yellow:#fff4cc;--green:#2b8a5a;--red:#b42318;--soft:#eef6fb}
+*{box-sizing:border-box}body{margin:0;font-family:"Microsoft JhengHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.72}header{background:linear-gradient(135deg,#0d2235,#164d72 60%,#0f8b8d);color:#fff;padding:42px 22px}.wrap{max-width:1080px;margin:auto}.back{display:inline-block;color:#fff;text-decoration:none;border:1px solid #ffffff55;padding:7px 12px;border-radius:999px;margin-bottom:16px}h1{font-size:clamp(2rem,4vw,3.2rem);line-height:1.2;margin:.2em 0}main{padding:28px 18px 60px}.card,.stage{max-width:1080px;margin:0 auto 22px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 24px #1423370d}.card{padding:24px}.stage{margin-top:14px;overflow:hidden}.stage summary{cursor:pointer;list-style:none}.head{display:grid;grid-template-columns:82px 1fr;gap:14px;align-items:center;padding:16px 18px;background:linear-gradient(90deg,#eef6fb,#fff)}.badge{width:68px;height:68px;border-radius:16px;background:var(--blue);color:#fff;display:grid;place-items:center;text-align:center;font-weight:800}.body{padding:18px 20px;border-top:1px solid var(--line)}.mission{border-left:5px solid var(--teal);background:#edf9f7;padding:17px 19px;border-radius:12px}.task,.hint,.safety{padding:14px;border-radius:12px;margin:10px 0}.task{background:#f8fafc;border:1px solid var(--line)}.hint{background:var(--yellow)}.safety{background:#fff3f2;border:1px solid #f0b8b3}.field{margin:12px 0}.field label{display:block;font-weight:700;margin-bottom:6px}.field input,.field textarea{width:100%;padding:10px 11px;border:1px solid #cfd8e3;border-radius:10px;font:inherit}.field textarea{min-height:84px}.part-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.part{padding:15px;border:1px solid var(--line);border-radius:14px;background:#fbfcfe}.part strong{display:block;color:var(--blue);margin-bottom:5px}.part .role{font-size:.92rem;color:var(--muted)}.flowbox{display:grid;gap:10px;margin-top:14px}.flowrow{display:grid;grid-template-columns:1fr 42px 1fr 42px 1fr;gap:8px;align-items:stretch}.node{display:grid;place-items:center;text-align:center;min-height:82px;padding:12px;border:2px solid #d5e2ec;border-radius:14px;background:#fff;font-weight:800}.arrow{display:grid;place-items:center;color:var(--teal);font-size:1.6rem;font-weight:900}.feedback{max-width:760px;margin:12px auto 0;padding:12px;border-radius:12px;background:#edf9f7;border:1px solid #abd7d8;text-align:center;font-weight:800;color:#176b6d}.choice{display:block;padding:11px 12px;border:1px solid var(--line);border-radius:11px;margin:8px 0;background:#fff}.choice.good{border-left:5px solid var(--green)}.choice.bad{border-left:5px solid var(--red)}.check-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.check{padding:14px;border:1px solid var(--line);border-radius:13px;background:#fbfcfe}.check strong{color:var(--blue)}.reveal{display:none;margin-top:10px;padding:12px;border-radius:10px;background:#edf9f7}.reveal.show{display:block}.btn{display:inline-block;border:0;border-radius:10px;padding:10px 14px;font:inherit;font-weight:700;cursor:pointer;background:var(--blue2);color:#fff;text-decoration:none}.btn.secondary{background:#eaf1f6;color:#194f73}.btn.green{background:var(--green)}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}.small,.muted{font-size:.93rem;color:var(--muted)}.summarybox{padding:16px;border-radius:14px;background:var(--soft);border:1px solid var(--line)}.preview{display:none}.preview.show{display:block}.report{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px}@media(max-width:760px){.head{grid-template-columns:64px 1fr}.part-grid,.check-grid{grid-template-columns:1fr}.flowrow{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}}@media print{header,.stage,.no-print{display:none!important}.preview{display:block!important}body{background:#fff}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="back" href="index.html">← 回解密地圖</a><div>M0｜第一關</div><h1>系統解密｜一架四軸無人機裡，哪些部分在一起合作？</h1><div>先別急著記零件名稱。今天你要追蹤一件事：當你下達一個指令後，無人機裡發生了什麼？</div></div></header>
+<main>
+<section class="card"><h2>今天要破解</h2><div class="mission"><strong>我明明只推了一下搖桿，為什麼四顆馬達就會做出反應？</strong><br>你會從完整機體開始，找出「提供電力、接收命令、感覺姿態、做出判斷、產生動作」的角色，最後把它們連成一個會工作的系統。</div></section>
+
+<details class="stage" open><summary><div class="head"><div class="badge">01<br>先猜</div><div><h3>如果打開一架無人機，你覺得裡面誰在工作？</h3></div></div></summary><div class="body"><div class="task">先看實體無人機。不要查答案，也不用線上作答。和同組同學說說看：你認為裡面至少要有哪些東西，才能讓它接收指令、知道自己有沒有歪掉，最後讓馬達轉起來？</div><div class="hint">這一關留下「原本的想法」就好。等等用真正的零件和系統流程來驗證。</div></div></details>
+
+<details class="stage"><summary><div class="head"><div class="badge">02<br>找角色</div><div><h3>不要先背名稱，先看每個部分「負責什麼」</h3></div></div></summary><div class="body"><p>觀察實體機、拆解件或教師展示，找找下面幾種角色各由誰負責。</p><div class="part-grid">
+<div class="part"><strong>提供能量</strong><div>讓控制板與馬達有電可以工作。</div><div class="role">常見角色：電池</div></div>
+<div class="part"><strong>接收命令</strong><div>把人的操作或電腦指令送進無人機。</div><div class="role">常見角色：無線通訊／接收介面</div></div>
+<div class="part"><strong>感覺狀態</strong><div>取得無人機目前的動作、傾斜或旋轉資訊。</div><div class="role">常見角色：IMU 感測器</div></div>
+<div class="part"><strong>做出判斷</strong><div>讀取命令與感測資料，決定接下來要怎麼控制。</div><div class="role">常見角色：ESP32 與飛控程式</div></div>
+<div class="part"><strong>調整輸出</strong><div>把控制板的命令變成可以控制馬達強弱的訊號與電力。</div><div class="role">常見角色：PWM 與馬達驅動電路</div></div>
+<div class="part"><strong>產生動作</strong><div>把電能轉成旋轉、氣流與推力。</div><div class="role">常見角色：馬達與螺旋槳</div></div>
+</div><div class="hint">同一個零件可能和很多功能有關。這裡先抓「主要角色」，後面的關卡再把每一層拆開研究。</div></div></details>
+
+<details class="stage"><summary><div class="head"><div class="badge">03<br>追指令</div><div><h3>我推一下搖桿，命令到底跑去哪裡？</h3></div></div></summary><div class="body"><div class="task">先用手指著實體機，試著依序說出「人的指令」最後怎麼變成「馬達真的轉動」。再打開下面的流程比對。</div><div class="flowbox"><div class="flowrow"><div class="node">我的操作<br><span class="small">搖桿／電腦程式</span></div><div class="arrow">→</div><div class="node">無人機收到命令<br><span class="small">Throttle / Roll / Pitch / Yaw 等控制意圖</span></div><div class="arrow">→</div><div class="node">飛控程式判斷<br><span class="small">決定四顆馬達該怎麼配合</span></div></div><div class="flowrow"><div class="node">PWM／驅動電路<br><span class="small">調整每一路輸出</span></div><div class="arrow">→</div><div class="node">馬達轉動</div><div class="arrow">→</div><div class="node">螺旋槳產生氣流與推力</div></div></div><div class="feedback">感測器也會把「現在的狀態」送回飛控程式，讓它知道接下來需不需要修正。</div><div class="hint"><strong>先記住一件事：</strong>遙控器或電腦送進去的是「我想讓無人機怎麼動」，不是直接把四顆馬達的 PWM 從空中傳過去。後面的 M3、M5 會繼續拆開這個黑盒。</div></div></details>
+
+<details class="stage"><summary><div class="head"><div class="badge">04<br>看兩條線</div><div><h3>同一架無人機裡，資訊和能量走的是同一條路嗎？</h3></div></div></summary><div class="body"><div class="check-grid"><div class="check"><strong>資訊在傳什麼？</strong><p>例如「想往前」、「目前向右歪了幾度」、「左前馬達需要增加輸出」。</p><div class="summarybox">操作／感測資料 → 控制板與程式 → 控制訊號</div></div><div class="check"><strong>能量在傳什麼？</strong><p>真正讓電子元件與馬達工作所需要的電能。</p><div class="summarybox">電池 → 電路 → 馬達 → 旋轉與推力</div></div></div><div class="task">和同組討論：如果「資訊正確，但沒有電」，會發生什麼？如果「有電，但控制訊號錯了」，又可能發生什麼？</div></div></details>
+
+<details class="stage"><summary><div class="head"><div class="badge">05<br>安全</div><div><h3>在研究馬達之前，先學會讓系統安全地「不能動」</h3></div></div></summary><div class="body"><div class="safety"><strong>重要：</strong>後面的課程會真的控制馬達。任何桌面測試都要先依教師指定方式拆槳、固定機體或使用限制式教具，不自行解鎖飛行。</div><p>下面四個情境，先想想哪些做法比較安全，再按「看判斷」。</p>
+<label class="choice">A｜準備量測 PWM，先拆下螺旋槳，再接上電源。</label>
+<label class="choice">B｜馬達測試中發現異常聲音，繼續加大輸出看看會不會恢復。</label>
+<label class="choice">C｜開始前確認系統仍在 Disarm／停止狀態，等教師指示再進入測試模式。</label>
+<label class="choice">D｜發生非預期動作時，先使用停止／急停功能，不用手去抓正在轉的槳。</label>
+<div class="actions"><button class="btn secondary" onclick="toggleSafety()">看判斷</button></div><div class="reveal" id="safetyReveal"><strong>A、C、D 是較安全的做法。</strong><br>B 不適合：出現異常時應先停止輸出、斷開危險來源並檢查原因。<br><br><strong>Disarm</strong> 可以理解成「不允許馬達進入正常飛行輸出」；<strong>Arm</strong> 則代表系統進入可驅動馬達的狀態。桌面探究不等於自由飛行，後面每一關都會依實驗目的使用不同安全限制。</div></div></details>
+
+<details class="stage"><summary><div class="head"><div class="badge">06<br>統整</div><div><h3>現在，你會怎麼解釋「一架無人機是一個系統」？</h3></div></div></summary><div class="body"><div class="summarybox"><strong>把今天的線索串起來：</strong><br>無人機要能工作，不只需要馬達。它還需要能量、命令、感測、控制、輸出，以及讓整個過程安全開始與停止的方法。</div><div class="field"><label>用你自己的話完成一句話（這是本關唯一需要留下的文字）：</label><textarea data-save id="summary" placeholder="我認為無人機是一個系統，因為……"></textarea></div><div class="hint">不用寫很多。只要能說清楚「不是單一零件，而是不同部分互相傳遞資訊與能量、一起完成任務」即可。</div></div></details>
+
+<details class="stage"><summary><div class="head"><div class="badge">07<br>下一題</div><div><h3>知道有哪些系統後，下一個問題：四顆馬達到底放在哪裡？</h3></div></div></summary><div class="body"><div class="mission">下一關 M1，你會從機體本身出發，找出前後左右、四顆馬達的位置，以及 Roll、Pitch、Yaw 這套無人機共同使用的方向語言。</div></div></details>
+
+<section class="card no-print"><h2>我的 M0 紀錄</h2><p class="muted">這一關不需要每個步驟都線上作答，只保留最後的一句統整。</p><div class="actions"><button class="btn" onclick="showReport()">成果預覽</button><button class="btn secondary" onclick="downloadTxt()">下載 TXT</button><button class="btn green" onclick="printReport()">列印／另存 PDF</button></div></section><section class="card preview" id="preview"><div class="report" id="report"></div></section>
+</main>
+<script>
+const KEY='drone-steam-v2-M0-record-v1',saveEls=[...document.querySelectorAll('[data-save]')];
+function save(){const d={};saveEls.forEach(e=>d[e.id]=e.value);localStorage.setItem(KEY,JSON.stringify(d))}
+function load(){try{const d=JSON.parse(localStorage.getItem(KEY)||'{}');saveEls.forEach(e=>{if(e.id in d)e.value=d[e.id]})}catch(e){}}
+saveEls.forEach(e=>e.addEventListener('input',save));load();
+function toggleSafety(){document.getElementById('safetyReveal').classList.toggle('show')}
+function val(id){return document.getElementById(id)?.value||''}
+function reportHtml(){return `<h2>M0｜系統解密</h2><h3>我的一句話統整</h3><p>${val('summary')||'尚未填寫'}</p><h3>今天追蹤的系統</h3><p>人的操作 → 無人機收到命令 → 飛控程式判斷 → PWM／驅動電路 → 馬達與螺旋槳；感測器把目前狀態送回飛控程式。</p><h3>安全提醒</h3><p>桌面馬達探究須依教師指定方式拆槳、固定或使用限制式教具，並保留停止／急停機制。</p>`}
+function showReport(){document.getElementById('report').innerHTML=reportHtml();document.getElementById('preview').classList.add('show');document.getElementById('preview').scrollIntoView({behavior:'smooth'})}
+function downloadTxt(){showReport();const b=new Blob([document.getElementById('report').innerText],{type:'text/plain;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='V2_M0_系統解密_任務紀錄.txt';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+function printReport(){showReport();setTimeout(()=>print(),80)}
+</script>
+</body>
+</html>
