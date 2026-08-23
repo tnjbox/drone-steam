@@ -23,7 +23,7 @@ V2 是 `drone-steam` 的新版課程研發區。原根目錄 M0～M7 舊版教�
 | M3 | 四軸協同 | 一個控制命令怎麼變成四顆馬達不同輸出？ | Throttle/Roll/Pitch/Yaw → Mixer → FL/FR/RL/RR |
 | M4 | 姿態感知 | 無人機怎麼知道自己歪了？ | MPU6500、Acc/Gyro、Roll/Pitch/Yaw、漂移、六面校正 |
 | M5 | 智慧控制 | 歪掉了，機器怎麼自己修正？ | 單軸／雙軸 PID 平衡架、Error、P/I/D、串級控制 |
-| M6 | 程式任務 | 如何把飛行動作變成機器可以執行的程式？ | Mission Executor、Web 任務、OSEP Scratch／Blockly |
+| M6 | 程式任務 | 如何把飛行動作變成機器可以執行的程式？ | Mission Algorithm Lab、Sequence／Loop／Condition、安全停止；AUTO 任務待韌體實作 |
 
 ## 預留延伸模組
 
@@ -56,7 +56,7 @@ V2 採逐階段確認方式：
 3. M1 完成 → 使用者檢視確認。
 4. M2 線上教材與 PWM 模擬先行；真實馬達數據與安全值待硬體採購後驗證。
 5. M3 四軸協同教材與 Quad Mixer Lab 已完成；真實四馬達輸出與飛行反應待硬體驗證。
-6. 依序完成 M4～M6。
+6. M4～M6 線上教材與 IMU、PID、Mission Lab 已完成；真實感測、控制與任務能力待硬體分級驗證。
 7. E1／E2 先保留規劃入口，待硬體成熟再實作。
 
 > 每一階段確認後才進入下一階段，不一次全面改寫。
